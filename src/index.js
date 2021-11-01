@@ -5,25 +5,18 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import Store from "./store/store";
-
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { green } from "@mui/material/colors";
+
 const store = Store();
-const { palette } = createTheme();
-const theme = createTheme({
+
+let theme = createTheme({
   palette: {
-    secondary: {
-      main: "#767676",
-    },
     primary: {
-      main: "#21ba45",
-    },
-    success: {
-      main: "#222",
-      contrastText: "#fff",
+      main: green[600],
     },
   },
 });
-
 ReactDOM.render(
   <Provider store={store}>
     <React.StrictMode>

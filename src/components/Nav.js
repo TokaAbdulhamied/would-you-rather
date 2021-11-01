@@ -1,9 +1,9 @@
 import React from "react";
-import { Tabs, Tab } from "@mui/material";
+import { Tabs, Tab, Typography } from "@mui/material";
 import { Route, BrowserRouter, Switch, Link } from "react-router-dom";
-
+import Login from "./Login";
 export default function Nav() {
-  const routes = ["/", "/pilots", "/mechs", "/org"];
+  const routes = ["/", "/new-quistion", "/leaders", "/login"];
   return (
     <>
       <BrowserRouter>
@@ -13,33 +13,33 @@ export default function Nav() {
             <Tabs
               aria-label="mini-mik "
               value={history.location.pathname}
-              //   color="success.main"
+              color="theme.palette.secondary.main"
               TabIndicatorProps={{
                 style: {
-                  backgroundColor: "secondry.main",
+                  backgroundColor: "theme.palette.secondary.main",
                 },
               }}
             >
               <Tab
-                label="Unit Info"
+                label="Home"
                 value={routes[0]}
                 component={Link}
                 to={routes[0]}
               />
               <Tab
-                label="Pilots"
+                label="New Quistion"
                 value={routes[1]}
                 component={Link}
                 to={routes[1]}
               />
               <Tab
-                label="Mechs"
+                label="Leaderboard"
                 value={routes[2]}
                 component={Link}
                 to={routes[2]}
               />
               <Tab
-                label="Unit Organization"
+                label="Logout"
                 value={routes[3]}
                 component={Link}
                 to={routes[3]}
@@ -49,10 +49,10 @@ export default function Nav() {
         />
 
         <Switch>
-          {/* <Route path="/" component={UnitInfo} exact />
-          <Route path="/pilots" component={Pilots} />
-          <Route path="/mechs" component={Mechs} />
-          <Route path="/org" component={Org} /> */}
+          {/* <Route path="/" component={Home} exact />
+          <Route path="/new-quistion" component={NewQuistion} />
+          <Route path="/leaders" component={Leaderborad} /> */}
+          <Route path="/login" component={Login} />
         </Switch>
       </BrowserRouter>
     </>
