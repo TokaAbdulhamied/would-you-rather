@@ -1,60 +1,46 @@
 import React from "react";
 import { Tabs, Tab, Typography } from "@mui/material";
-import { Route, BrowserRouter, Switch, Link } from "react-router-dom";
+import {
+  Route,
+  BrowserRouter,
+  Switch,
+  Link,
+  useLocation,
+} from "react-router-dom";
 import Login from "./Login";
+import UserCard from "./UserCard";
 export default function Nav() {
-  const routes = ["/", "/new-quistion", "/leaders", "/login"];
+  const routes = ["/home", "/new-quistion", "/leaders", "/login"];
+
+  const location = useLocation();
+  const { pathname } = location;
   return (
     <>
-      <BrowserRouter>
-        <Route
-          path="/"
-          render={(history) => (
-            <Tabs
-              aria-label="mini-mik "
-              value={history.location.pathname}
-              color="theme.palette.secondary.main"
-              TabIndicatorProps={{
-                style: {
-                  backgroundColor: "theme.palette.secondary.main",
-                },
-              }}
-            >
-              <Tab
-                label="Home"
-                value={routes[0]}
-                component={Link}
-                to={routes[0]}
-              />
-              <Tab
-                label="New Quistion"
-                value={routes[1]}
-                component={Link}
-                to={routes[1]}
-              />
-              <Tab
-                label="Leaderboard"
-                value={routes[2]}
-                component={Link}
-                to={routes[2]}
-              />
-              <Tab
-                label="Logout"
-                value={routes[3]}
-                component={Link}
-                to={routes[3]}
-              />
-            </Tabs>
-          )}
+      <Tabs
+        aria-label="mini-mik "
+        value={pathname}
+        color="theme.palette.secondary.main"
+        TabIndicatorProps={{
+          style: {
+            backgroundColor: "theme.palette.secondary.main",
+          },
+        }}
+      >
+        <Tab label="Home" value={routes[0]} component={Link} to={routes[0]} />
+        <Tab
+          label="New Quistion"
+          value={routes[1]}
+          component={Link}
+          to={routes[1]}
         />
-
-        <Switch>
-          {/* <Route path="/" component={Home} exact />
-          <Route path="/new-quistion" component={NewQuistion} />
-          <Route path="/leaders" component={Leaderborad} /> */}
-          <Route path="/login" component={Login} />
-        </Switch>
-      </BrowserRouter>
+        <Tab
+          label="Leaderboard"
+          value={routes[2]}
+          component={Link}
+          to={routes[2]}
+        />
+        <Tab label="Logout" value={routes[3]} component={Link} to={routes[3]} />
+      </Tabs>
     </>
   );
 }
