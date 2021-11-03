@@ -4,6 +4,7 @@ import Nav from "./components/Nav";
 import { Route, BrowserRouter, Switch, Link } from "react-router-dom";
 import Login from "./components/Login";
 import UserCard from "./components/UserCard";
+import NewPoll from "./components/NewPoll";
 function App() {
   return (
     <div className="App">
@@ -15,8 +16,9 @@ function App() {
           <Nav />
           <Switch>
             {/* <Route path="/" component={Home} exact />
-          <Route path="/new-quistion" component={NewQuistion} />
-          <Route path="/leaders" component={Leaderborad} /> */}
+         <Route path="/leaders" component={Leaderborad} />  */}
+            <Route path="/new-quistion" component={NewPoll} />
+
             <Route exact path="/home" component={UserCard} />
             <Route path="/login" component={Login} />
           </Switch>

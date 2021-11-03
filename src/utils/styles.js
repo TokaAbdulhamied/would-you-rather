@@ -4,6 +4,7 @@ import { grey } from "@mui/material/colors";
 export const useStyles = makeStyles({
   card: {
     maxWidth: 500,
+
     display: "flex",
     flexDirection: "column",
   },
@@ -36,5 +37,11 @@ export const useStyles = makeStyles({
     borderLeft: `1px solid${grey[300]}`,
     marginTop: "20px",
     marginBottom: "20px",
+  },
+  hrSpan: {
+    borderTop: `2px solid ${grey[300]}`,
+    display: "block",
+    alignSelf: "center",
+    width: "45%",
   },
 });
