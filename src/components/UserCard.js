@@ -32,7 +32,7 @@ export default function UserCard() {
           <span className={classes.span}></span>
           <CardContent className={classes.content}>
             <Typography>this is the qiiostion content </Typography>
-            <Button sx={{ py: 1.5 }} variant="contained">
+            <Button sx={{ py: 0.7 }} variant="contained">
               Answer Poll
             </Button>
           </CardContent>
