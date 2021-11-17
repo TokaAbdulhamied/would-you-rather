@@ -1,4 +1,4 @@
-import { GET_QUISTIONS } from "../actions/quistions";
+import { GET_QUISTIONS } from "../actioncreators/quistions";
 
 export default function quistions(state = {}, action) {
   switch (action.type) {

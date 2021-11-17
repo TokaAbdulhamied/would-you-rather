@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import UsersMenu from "./UsersMenu";
 import {
   Card,
@@ -8,21 +8,17 @@ import {
   Button,
 } from "@mui/material";
 import { useStyles } from "../utils/styles";
+import { connect } from "react-redux";
+import { CardHead } from "./CardHead";
+import { handleGetUsers } from "../store/actioncreators/users";
 
-export const CardHead = ({ subheader = "", ...props }) => {
-  const classes = useStyles(props.style);
-  return (
-    <CardHeader
-      className={classes.header}
-      titleTypographyProps={{ variant: props.varient }}
-      title={props.title}
-      subheader={subheader}
-    />
-  );
-};
+function Login({ users, handleGetUsers }) {
+  useEffect(() => {
+    handleGetUsers();
+  }, []);
 
-export default function Login() {
   const classes = useStyles();
+  console.log(users);
   return (
     <div>
       <Card variant="outlined" className={classes.card}>
@@ -39,7 +35,7 @@ export default function Login() {
           alt="animals"
         />
         <CardContent className={classes.content}>
-          <UsersMenu />
+          <UsersMenu users={users} />
           <Button sx={{ py: 1.5 }} variant="contained">
             Sign In
           </Button>
@@ -48,3 +44,6 @@ export default function Login() {
     </div>
   );
 }
+const mapStateToProps = (state) => ({ users: Object.values(state.users) });
+
+export default connect(mapStateToProps, { handleGetUsers })(Login);

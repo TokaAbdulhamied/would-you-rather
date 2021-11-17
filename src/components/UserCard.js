@@ -8,7 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useStyles } from "../utils/styles";
-import { CardHead } from "./Login";
+import { CardHead } from "./CardHead";
 import { height } from "@mui/system";
 
 export default function UserCard() {

@@ -3,8 +3,7 @@ import { grey } from "@mui/material/colors";
 
 export const useStyles = makeStyles({
   card: {
-    maxWidth: 500,
-
+    width: 500,
     display: "flex",
     flexDirection: "column",
   },

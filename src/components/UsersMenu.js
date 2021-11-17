@@ -7,13 +7,16 @@ import {
   FormControl,
   InputLabel,
   Select,
+  ListItemIcon,
 } from "@mui/material";
 
-export default function UsersMenu() {
-  const [value, setValue] = React.useState("");
+export default function UsersMenu({ users }) {
+  const [userId, setUserId] = React.useState("");
+
   // const open = Boolean(anchorEl);
+
   const handleChange = (event) => {
-    setValue(event.target.value);
+    setUserId(event.target.value);
   };
 
   return (
@@ -22,14 +25,16 @@ export default function UsersMenu() {
         <InputLabel id="menu">Select User</InputLabel>
 
         <Select
-          value={value}
+          value={userId}
           labelId="menu"
-          label="Select User  "
+          label="Select User"
           onChange={handleChange}
         >
-          <MenuItem value="Profile">Profile</MenuItem>
-          <MenuItem value="My account">My account</MenuItem>
-          <MenuItem value="Logout">Logout</MenuItem>
+          {users.map((user) => (
+            <MenuItem value={user.id} key={user.id}>
+              {user.name}
+            </MenuItem>
+          ))}
         </Select>
       </FormControl>
     </>
